@@ -1,8 +1,10 @@
 import * as THREE from "three";
-import { useRef, useMemo, useState, useEffect } from "react";
+import { cloneElement, useRef, useMemo, useState, useEffect } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
+import { FaGitAlt, FaGithub, FaJava } from "react-icons/fa";
 import {
   BallCollider,
   Physics,
@@ -10,6 +12,15 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import {
+  SiClaude,
+  SiDocker,
+  SiDotnet,
+  SiGithubcopilot,
+  SiGooglegemini,
+  SiOpenai,
+  SiPodman,
+} from "react-icons/si";
 
 const imageUrls = [
   "/images/react2.webp",
@@ -22,18 +33,17 @@ const imageUrls = [
   "/images/javascript.webp",
 ];
 
-const labelTechs = [
-  "JAVA",
-  ".NET",
-  "Git",
-  "GitHub",
-  "Codex",
-  "GPT",
-  "Claude",
-  "Gemini",
-  "GitHub Copilot",
-  "Docker",
-  "Podman",
+const iconTechs = [
+  { icon: <FaJava />, color: "#f89820" },
+  { icon: <SiDotnet />, color: "#512bd4" },
+  { icon: <FaGitAlt />, color: "#f05032" },
+  { icon: <FaGithub />, color: "#ffffff" },
+  { icon: <SiOpenai />, color: "#ffffff" },
+  { icon: <SiClaude />, color: "#d97757" },
+  { icon: <SiGooglegemini />, color: "#8e75ff" },
+  { icon: <SiGithubcopilot />, color: "#ffffff" },
+  { icon: <SiDocker />, color: "#2496ed" },
+  { icon: <SiPodman />, color: "#892ca0" },
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
@@ -42,48 +52,34 @@ const spheres = [...Array(42)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
-function createLabelTexture(label: string) {
-  const canvas = document.createElement("canvas");
-  canvas.width = 512;
-  canvas.height = 512;
-
-  const context = canvas.getContext("2d")!;
-  const gradient = context.createLinearGradient(0, 0, 512, 512);
-  gradient.addColorStop(0, "#0d1117");
-  gradient.addColorStop(0.55, "#151c24");
-  gradient.addColorStop(1, "#1d2a2b");
-
-  context.fillStyle = gradient;
-  context.fillRect(0, 0, 512, 512);
-
-  context.strokeStyle = "rgba(94, 234, 212, 0.55)";
-  context.lineWidth = 12;
-  context.beginPath();
-  context.arc(256, 256, 214, 0, Math.PI * 2);
-  context.stroke();
-
-  context.strokeStyle = "rgba(255, 255, 255, 0.14)";
-  context.lineWidth = 2;
-  for (let i = 76; i < 512; i += 72) {
-    context.beginPath();
-    context.moveTo(58, i);
-    context.lineTo(454, i);
-    context.stroke();
-  }
-
-  const words =
-    label === "GitHub Copilot" ? ["GitHub", "Copilot"] : [label];
-  context.fillStyle = "#f4eff7";
-  context.textAlign = "center";
-  context.textBaseline = "middle";
-  context.font = words.length > 1 ? "700 70px Arial" : "700 88px Arial";
-
-  words.forEach((word, index) => {
-    const y = words.length > 1 ? 220 + index * 78 : 256;
-    context.fillText(word, 256, y, 420);
-  });
-
-  const texture = new THREE.CanvasTexture(canvas);
+function createIconTexture(icon: JSX.Element, color: string) {
+  const svg = renderToStaticMarkup(
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      width="512"
+      height="512"
+    >
+      <rect width="512" height="512" rx="256" fill="#10151c" />
+      <circle
+        cx="256"
+        cy="256"
+        r="216"
+        fill="none"
+        stroke="rgba(255,255,255,0.16)"
+        strokeWidth="18"
+      />
+      <g transform="translate(116 116)">
+        {cloneElement(icon, {
+          color,
+          size: 280,
+        })}
+      </g>
+    </svg>
+  );
+  const texture = new THREE.TextureLoader().load(
+    `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
+  );
   texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
@@ -213,7 +209,7 @@ const TechStack = () => {
     const textureLoader = new THREE.TextureLoader();
     const textures = [
       ...imageUrls.map((url) => textureLoader.load(url)),
-      ...labelTechs.map((label) => createLabelTexture(label)),
+      ...iconTechs.map((tech) => createIconTexture(tech.icon, tech.color)),
     ];
 
     return textures.map(
