@@ -53,30 +53,25 @@ const spheres = [...Array(42)].map(() => ({
 }));
 
 function createIconTexture(icon: JSX.Element, color: string) {
-  const svg = renderToStaticMarkup(
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-      width="512"
-      height="512"
-    >
+  const iconMarkup = renderToStaticMarkup(
+    cloneElement(icon, {
+      color,
+      fill: color,
+      size: 280,
+      style: { color },
+    })
+  ).replace(/currentColor/g, color);
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
       <rect width="512" height="512" rx="256" fill="#10151c" />
-      <circle
-        cx="256"
-        cy="256"
-        r="216"
-        fill="none"
-        stroke="rgba(255,255,255,0.16)"
-        strokeWidth="18"
-      />
+      <circle cx="256" cy="256" r="216" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="18" />
       <g transform="translate(116 116)">
-        {cloneElement(icon, {
-          color,
-          size: 280,
-        })}
+        ${iconMarkup}
       </g>
     </svg>
-  );
+  `.trim();
+
   const texture = new THREE.TextureLoader().load(
     `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
   );
