@@ -1,10 +1,8 @@
 import * as THREE from "three";
-import { cloneElement, useRef, useMemo, useState, useEffect } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
-import { FaGitAlt, FaGithub, FaJava } from "react-icons/fa";
 import {
   BallCollider,
   Physics,
@@ -12,15 +10,6 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
-import {
-  SiClaude,
-  SiDocker,
-  SiDotnet,
-  SiGithubcopilot,
-  SiGooglegemini,
-  SiOpenai,
-  SiPodman,
-} from "react-icons/si";
 
 const imageUrls = [
   "/images/react2.webp",
@@ -31,19 +20,16 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
-];
-
-const iconTechs = [
-  { icon: <FaJava />, color: "#ffffff" },
-  { icon: <SiDotnet />, color: "#ffffff" },
-  { icon: <FaGitAlt />, color: "#ffffff" },
-  { icon: <FaGithub />, color: "#ffffff" },
-  { icon: <SiOpenai />, color: "#ffffff" },
-  { icon: <SiClaude />, color: "#ffffff" },
-  { icon: <SiGooglegemini />, color: "#ffffff" },
-  { icon: <SiGithubcopilot />, color: "#ffffff" },
-  { icon: <SiDocker />, color: "#ffffff" },
-  { icon: <SiPodman />, color: "#ffffff" },
+  "/images/java.svg",
+  "/images/dotnet.svg",
+  "/images/git.svg",
+  "/images/github.svg",
+  "/images/openai.svg",
+  "/images/claude.svg",
+  "/images/gemini.svg",
+  "/images/github-copilot.svg",
+  "/images/docker.svg",
+  "/images/podman.svg",
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
@@ -51,33 +37,6 @@ const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 const spheres = [...Array(42)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
-
-function createIconTexture(icon: JSX.Element, color: string) {
-  const iconMarkup = renderToStaticMarkup(
-    cloneElement(icon, {
-      color,
-      fill: color,
-      size: 280,
-      style: { color },
-    })
-  ).replace(/currentColor/g, color);
-
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-      <rect width="512" height="512" rx="256" fill="#10151c" />
-      <circle cx="256" cy="256" r="216" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="18" />
-      <g transform="translate(116 116)">
-        ${iconMarkup}
-      </g>
-    </svg>
-  `.trim();
-
-  const texture = new THREE.TextureLoader().load(
-    `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
-  );
-  texture.colorSpace = THREE.SRGBColorSpace;
-  return texture;
-}
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -202,10 +161,7 @@ const TechStack = () => {
   }, []);
   const materials = useMemo(() => {
     const textureLoader = new THREE.TextureLoader();
-    const textures = [
-      ...imageUrls.map((url) => textureLoader.load(url)),
-      ...iconTechs.map((tech) => createIconTexture(tech.icon, tech.color)),
-    ];
+    const textures = imageUrls.map((url) => textureLoader.load(url));
 
     return textures.map(
       (texture) =>
