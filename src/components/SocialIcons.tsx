@@ -1,6 +1,5 @@
-import {
-  FaLinkedinIn,
-} from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
@@ -73,6 +72,15 @@ const SocialIcons = () => {
             rel="noreferrer"
           >
             <FaLinkedinIn />
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://github.com/akshat-tiwari07"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub />
           </a>
         </span>
       </div>

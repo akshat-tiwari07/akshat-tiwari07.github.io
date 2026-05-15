@@ -38,6 +38,15 @@ const Contact = () => {
               LinkedIn <MdArrowOutward />
             </a>
             <a
+              href="https://github.com/akshat-tiwari07"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              GitHub <MdArrowOutward />
+            </a>
+            <a
               href="/Akshat_Tiwari.pdf"
               target="_blank"
               rel="noreferrer"
