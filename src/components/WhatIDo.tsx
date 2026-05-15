@@ -102,6 +102,8 @@ const WhatIDo = () => {
                 <div className="what-tags">.NET</div>
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">System design</div>
+                <div className="what-tags">Git</div>
+                <div className="what-tags">GitHub</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -140,7 +142,11 @@ const WhatIDo = () => {
                 <div className="what-tags">Artifactory SaaS</div>
                 <div className="what-tags">MongoDB</div>
                 <div className="what-tags">SQL Server</div>
-                <div className="what-tags">Codex &amp; Copilot</div>
+                <div className="what-tags">Codex</div>
+                <div className="what-tags">GPT</div>
+                <div className="what-tags">Claude</div>
+                <div className="what-tags">Gemini</div>
+                <div className="what-tags">GitHub Copilot</div>
               </div>
               <div className="what-arrow"></div>
             </div>
