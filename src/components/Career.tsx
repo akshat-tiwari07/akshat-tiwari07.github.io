@@ -15,58 +15,59 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Co-Founder</h4>
-                <h5>CallHQ.ai</h5>
+                <h4>Senior Software Engineer</h4>
+                <h5>Optum</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Building CallHQ.ai, a voice AI platform for
-              automating customer calls, support, and conversions.
+              Building EasyTest and enterprise application features with Java,
+              Spring Boot, React, REST APIs, Docker, Podman, MongoDB, and
+              Artifactory SaaS. Improved page performance from multi-minute load
+              times to under 10 seconds and raised coverage across critical pages.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Adobe</h4>
-                <h5>6+ years · Noida</h5>
+                <h4>Webstrat</h4>
+                <h5>Full-stack engineering</h5>
               </div>
-              <h3>2017–24</h3>
+              <h3>2023-24</h3>
             </div>
             <p>
-              Senior Lead Software Engineer (Feb 2024 – May 2024). Lead Software
-              Engineer (Feb 2021 – Feb 2024). Software Engineer II (Dec 2017 –
-              Feb 2021): internationalization, globalization, and localization for
-              Adobe Technical Communication Suite; functional and linguistic testing
-              strategy; in-house tooling; collaboration with product and engineering
-              for high-quality localized releases.
+              Engineered rapid data-entry modules, custom print workflows,
+              reusable automation functions, and security remediation efforts
+              that reduced recurring CodeQL vulnerabilities from thousands to a
+              small actionable set.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Consultant</h4>
-                <h5>Genpact Headstrong </h5>
+                <h4>ARPA Developer</h4>
+                <h5>HighRadius</h5>
               </div>
-              <h3>2016–17</h3>
+              <h3>2022</h3>
             </div>
             <p>
-              Sep 2016 – Nov 2017. Developed and maintained WCF services consumed
-              by the UI; deployment support across environments; NUnit tests and
-              coverage; bug fixes from QA and users; database work.
+              Maintained and optimized Java-based backend architectures, resolved
+              client-reported defects, and closed 20+ complex JIRA tickets while
+              meeting strict SLAs.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Sf Engineer</h4>
-                <h5>Infogain</h5>
+                <h4>B.Tech Computer Science</h4>
+                <h5>Kalinga Institute Of Industrial Technology</h5>
               </div>
-              <h3>2013-16</h3>
+              <h3>2023</h3>
             </div>
             <p>
-              Software engineering across enterprise projects, contributing to
-              design, development, and delivery of business applications.
+              Graduated with a CPI of 8.68, with a foundation in data
+              structures, algorithms, object-oriented programming, and system
+              design.
             </p>
           </div>
         </div>

@@ -87,20 +87,21 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>PRODUCT ENGINEERING</h3>
+              <h4>Enterprise Apps &amp; Performance</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                I build and modernize application features across complex product
+                surfaces, with a strong focus on maintainability, accessibility,
+                speed, and measurable user experience gains.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">Java</div>
+                <div className="what-tags">Spring Boot</div>
+                <div className="what-tags">React</div>
+                <div className="what-tags">.NET</div>
+                <div className="what-tags">REST APIs</div>
+                <div className="what-tags">System design</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -124,21 +125,22 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>DELIVERY &amp; AUTOMATION</h3>
+              <h4>CI/CD, Quality, and AI-Assisted Workflows</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                I improve build, test, and deployment pipelines, automate
+                repetitive engineering work, and use AI-assisted development to
+                move from tickets to production-ready code with more confidence.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Podman</div>
+                <div className="what-tags">GitHub Actions</div>
+                <div className="what-tags">Artifactory SaaS</div>
                 <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">SQL Server</div>
+                <div className="what-tags">Codex &amp; Copilot</div>
               </div>
               <div className="what-arrow"></div>
             </div>
