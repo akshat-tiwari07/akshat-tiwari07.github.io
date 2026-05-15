@@ -34,16 +34,16 @@ const imageUrls = [
 ];
 
 const iconTechs = [
-  { icon: <FaJava />, color: "#f89820" },
-  { icon: <SiDotnet />, color: "#512bd4" },
-  { icon: <FaGitAlt />, color: "#f05032" },
+  { icon: <FaJava />, color: "#ffffff" },
+  { icon: <SiDotnet />, color: "#ffffff" },
+  { icon: <FaGitAlt />, color: "#ffffff" },
   { icon: <FaGithub />, color: "#ffffff" },
   { icon: <SiOpenai />, color: "#ffffff" },
-  { icon: <SiClaude />, color: "#d97757" },
-  { icon: <SiGooglegemini />, color: "#8e75ff" },
+  { icon: <SiClaude />, color: "#ffffff" },
+  { icon: <SiGooglegemini />, color: "#ffffff" },
   { icon: <SiGithubcopilot />, color: "#ffffff" },
-  { icon: <SiDocker />, color: "#2496ed" },
-  { icon: <SiPodman />, color: "#892ca0" },
+  { icon: <SiDocker />, color: "#ffffff" },
+  { icon: <SiPodman />, color: "#ffffff" },
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
